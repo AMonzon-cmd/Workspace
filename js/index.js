@@ -1,14 +1,31 @@
-document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("autos").addEventListener("click", function() {
-        localStorage.setItem("catID", 101);
-        window.location = "products.html"
-    });
-    document.getElementById("juguetes").addEventListener("click", function() {
-        localStorage.setItem("catID", 102);
-        window.location = "products.html"
-    });
-    document.getElementById("muebles").addEventListener("click", function() {
-        localStorage.setItem("catID", 103);
-        window.location = "products.html"
-    });
-});
+function Login() {
+    var email, pass;
+    email = document.getElementById("email").value;
+    pass = document.getElementById("pass").value;
+
+
+    if (email === '') {
+        document.getElementById("alertEmail").innerHTML = "Falta Email";
+    } else {
+        if (email.includes('@') === false) {
+            document.getElementById("alertEmail").innerHTML = "El texto ingresado no es un correo";
+        }
+        else if(email.includes('.com') === false){
+            document.getElementById("alertEmail").innerHTML = "El texto ingresado no es un correo";
+        }
+        else{ 
+            document.getElementById("alertEmail").innerHTML = "";
+        }
+    }
+    if (pass === '') {
+        document.getElementById("alertPass").innerHTML = "Falta Contraseña";
+    } else {
+        document.getElementById("alertPass").innerHTML = "";
+    }
+
+    if(email != '' && pass != '' && email.includes('.com') === true && email.includes('@') === true){
+        window.location.href="main.html";
+    }
+
+
+} 

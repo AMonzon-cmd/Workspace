@@ -10,10 +10,10 @@ function Login() {
         if (email.includes('@') === false) {
             document.getElementById("alertEmail").innerHTML = "El texto ingresado no es un correo";
         }
-        else if(email.includes('.com') === false){
+        else if (email.includes('.com') === false) {
             document.getElementById("alertEmail").innerHTML = "El texto ingresado no es un correo";
         }
-        else{ 
+        else {
             document.getElementById("alertEmail").innerHTML = "";
         }
     }
@@ -23,9 +23,10 @@ function Login() {
         document.getElementById("alertPass").innerHTML = "";
     }
 
-    if(email != '' && pass != '' && email.includes('.com') === true && email.includes('@') === true){
-        window.location.href="main.html";
+    if (email != '' && pass != '' && email.includes('.com') === true && email.includes('@') === true) {
+        window.location.href = "main.html";
     }
+
 
 
 } 

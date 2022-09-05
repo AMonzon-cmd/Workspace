@@ -12,6 +12,8 @@
   <link href="css/styles.css" rel="stylesheet">
 
   <script src="js/index.js"></script>
+  <script src="js/localStorage.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
 
   <style>
@@ -49,11 +51,8 @@
         </form>
         <button id="login" type="button" class="btn btn-primary" onclick="Login()">Ingresar</button><br>
       </div>
-      <div id="buttonDiv">
-
-      </div>
+      <div id="buttonDiv"></div>
     </div>
-
   </main>
 
   <footer class="text-muted">
@@ -69,34 +68,4 @@
 
 
 </body>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-<script>
-  function handleCredentialResponse(response) {
-    const data = jwt_decode(response.credential);
-    console.log(data);
-    window.location.href="main.html";
-  }
-  window.onload = function () {
-    google.accounts.id.initialize({
-      client_id: "23227879045-2p9cc2mie3eg17rv0c4gn1gbv4dmnts6.apps.googleusercontent.com",
-      callback: handleCredentialResponse,
-    });
-    google.accounts.id.renderButton(
-      document.getElementById("buttonDiv"),
-      {
-        theme: "outline",
-        size: "large",
-        type: "standard",
-        shape: "pill",
-        theme: "filled_black",
-        text: "$ {button.text}",
-        size: "large",
-        logo_alignment: "left",
-        width: "300",
-      }  // customization attributes
-    );
-    google.accounts.id.prompt(); // also display the One Tap dialog
-  }
-</script>
-
 </html>

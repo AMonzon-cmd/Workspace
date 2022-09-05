@@ -74,7 +74,7 @@ function showCategoriesList(){
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
 
-    if(categoriesArray != undefined){
+    if(categoriesArray != undefined){   
         currentCategoriesArray = categoriesArray;
     }
 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
             currentCategoriesArray = resultObj.data
             showCategoriesList()
-            //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
+            sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
         }
     });
 

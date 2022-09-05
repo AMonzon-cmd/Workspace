@@ -36,8 +36,8 @@
           </li>
         </ul>
       </div>
-
     </div>
+    <div><label id="labelEmail"></label></div>
   </nav>
 
   <main role="main" class="pb-5">
@@ -45,6 +45,47 @@
       <h2>Productos</h2>
       <p id="textoadicional"></p>
     </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 text-start">
+        <input type="search" name="options" class="form-control" id="buscarPorNombre" placeholder="Buscar Producto">
+        </div>
+        <div class="col text-end">
+          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+            <input type="radio" class="btn-check" name="options" id="ordenAscendente">
+            <label class="btn btn-light" for="ordenAscendente">Mas Barato</label>
+            <input type="radio" class="btn-check" name="options" id="ordenDescendente">
+            <label class="btn btn-light" for="ordenDescendente">Mas Caro</label>
+            <input type="radio" class="btn-check" name="options" id="relevanciaVendido">
+            <label class="btn btn-light" for="relevanciaVendido">Relevantes</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-end my-2">Cant.</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="cantidadMinima">
+            </div>
+            <br>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="cantidadMaxima" >
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="filtradoXPrecio">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="row">
         <div class="list-group" id="cat-list-container">
@@ -75,6 +116,7 @@
   </div>
 
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/localStorage.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
 

@@ -22,8 +22,8 @@ function showProductList(array) {
         /*me esta faltando algo que sepa que tiene que buscar en el array productos*/
         /*tomo los datos del arreglo y los imprimo en codigo html*/
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
-            <div class="row">
+        <div onclick="setProductID(${producto.id})" class="list-group-item list-group-item-action">
+            <div class="row" >
                 <div class="col-3">
                     <img src="${producto.image}" alt="product image" class="img-thumbnail"></img>
                 </div>
@@ -124,6 +124,10 @@ function busqueda() {
     }
 }
 
+function setProductID(id) {
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html"
+}
 
 
 /* 
@@ -171,4 +175,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("buscarPorNombre").addEventListener('input', function () {
         busqueda();
     });
+
 });

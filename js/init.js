@@ -25,7 +25,7 @@ let getJSONData = function(url){
     .then(response => {
       if (response.ok) {
         return response.json();
-      }else{
+      }else{ 
         throw Error(response.statusText);
       }
     })

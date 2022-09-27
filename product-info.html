@@ -14,7 +14,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    
+
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,12 +41,29 @@
 
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="list-group" id="cat-list-container">
+      </div>
+      <div class="flex-column" id="product-images">
+      </div>
+      <div class="flex-column" id="comentarios">
+      </div>
+      <div class="flex-column" id="ctrl-com">
+        <h3>Comentar</h3>
+        <p>Tu opinion</p>
+        <textarea id="descripcion" cols="75" rows="4"></textarea>
+        <br><label>Tu puntuacion</label>
+        <select id="puntaje">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+        <br><button type="submit" id="SendComentario">Enviar</button>
       </div>
     </div>
   </main>
-  
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">

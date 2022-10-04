@@ -192,3 +192,11 @@ a.custom-card:hover {
 #labelEmail{
   color: aliceblue;
 }
+.detalles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.detallesComentarios {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+}

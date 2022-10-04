@@ -125,9 +125,11 @@ function busqueda() {
 }
 
 function setProductID(id) {
+    localStorage.setItem("arrayProducts", JSON.stringify(productArray));
     localStorage.setItem("productID", id);
     window.location = "product-info.html"
 }
+
 
 
 /* 

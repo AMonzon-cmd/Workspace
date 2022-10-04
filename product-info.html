@@ -41,26 +41,59 @@
 
   <main>
     <div class="container">
-      <div class="list-group" id="cat-list-container">
+      <div class="container">
+        <div id="titulo"></div>
+        <div class="detalles">
+
+          <div class="izquierda">
+            <div class="list-group" id="cat-list-container"></div>
+          </div>
+          <div class="derecha">
+
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+
+              <div class="carousel-inner" id="productImage">
+
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex-column" id="product-images">
-      </div>
+
       <div class="flex-column" id="comentarios">
       </div>
-      <div class="flex-column" id="ctrl-com">
-        <h3>Comentar</h3>
-        <p>Tu opinion</p>
-        <textarea id="descripcion" cols="75" rows="4"></textarea>
-        <br><label>Tu puntuacion</label>
-        <select id="puntaje">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select><br>
-        <br><button type="submit" id="SendComentario">Enviar</button>
+      <br>
+
+      <div class="detallesComentarios" id="ctrl-com">
+        <div class="izquierda">
+          <div class="titulo">
+            <h3>Tienes algo que decir...</h3>
+          </div>
+        </div>
+        <div class="derecha">
+          <select id="puntaje" class="form-select form-select-sm ">
+            <option selected>Tu puntuacion</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
       </div>
+      <br>
+      <div class="container">
+        <textarea class="form-control" id="descripcion" placeholder="Ingresatu opinion aqui ..." ></textarea>
+        <br>
+        <button type="button" class="btn btn-primary btn-sm" id="SendComentario">Enviar</button>
+      </div>
+      <hr><br>
+
+      <h3>Productos relacionados</h3>
+      <br>
+      <div class="row" id="relacionados"></div>
+
     </div>
   </main>
 
@@ -88,6 +121,7 @@
   <script src="js/localStorage.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+
 
 </body>
 

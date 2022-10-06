@@ -200,3 +200,14 @@ a.custom-card:hover {
   display: grid;
   grid-template-columns: 6fr 1fr;
 }
+.derecha{
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: start;
+}
+.center-h{
+  justify-content: center;
+}
+.center-v{
+  align-items: center;
+}

@@ -2,6 +2,7 @@ let producto = [];
 let imagenes;
 let comentarios;
 
+
 function showNameProduct() {
     let htmlContentToAppend = `
         <h1 >${producto.name}</h1>
@@ -12,12 +13,12 @@ function showNameProduct() {
 function showInfo() {
     let htmlContentToAppend =
         `
-        <h4><b>Precio</b><br></h4><p>${producto.cost}</p><br>
-        <h4><b>Descripcion</b><br></h4><p>${producto.description}</p><br>
-        <h4><b>Categoria</b><br></h4><p>${producto.category}</p><br>
-        <h4><b>Cantidad de Vendidos</b><br></h4><p>${producto.soldCount}</p><br>
+        <br><h4><b> US$ ${producto.cost}</b></h4>
+        <br><h4><b>Detalle </b><br></h4><p>${producto.description}</p>
+        <br><h4><b>Categoria</b><br></h4><p>${producto.category}</p>
+        <br><h4><b>Vendidos</b><br></h4><p>${producto.soldCount}</p><br>
     `;
-    document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+    document.getElementById("listInfoProduct").innerHTML = htmlContentToAppend;
 }
 
 function showPicture() {
@@ -26,14 +27,14 @@ function showPicture() {
         //console.log(producto.images.slice(i).shift());
         if(i==1){ 
         htmlContentToAppend = `
-            <div class="carousel-item active" data-bs-interval="4000">
-                <img src="${producto.images.slice(i).shift()}"  alt="...">
+            <div class="carousel-item active" data-bs-interval="3550">
+                <img src="${producto.images.slice(i).shift()}"  alt="..." width="625" height="418">
             </div> `;
         }
         else{
             htmlContentToAppend = `
-            <div class="carousel-item" data-bs-interval="4000">
-                <img src="${producto.images.slice(i).shift()}"  alt="...">
+            <div class="carousel-item" data-bs-interval="3550">
+                <img src="${producto.images.slice(i).shift()}"  alt="..." width="625" height="418">
             </div> `;
         }
         document.getElementById("productImage").innerHTML += htmlContentToAppend;
@@ -57,7 +58,7 @@ function scoreToStar(score) {
 
 function showComentario() {
     document.getElementById("comentarios").innerHTML = null;
-    let htmlContentToAppend = `<hr><br><h3>Comentarios</h3>`;
+    let htmlContentToAppend = `<h3>Comentarios</h3>`;
     for (let i = 0; i < comentarios.length; i++) {
         htmlContentToAppend += `
             <b>${comentarios[i].user}</b>  -  ${comentarios[i].dateTime}  -  ` + scoreToStar(comentarios[i].score) + `
@@ -77,31 +78,32 @@ function agregarComentario() {
     console.log(comentarios);
 }
 
+function redireccionamiento(id){
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html";
+}
+
 function relaciones() {
     let allProducts = JSON.parse(localStorage.getItem('arrayProducts'));
     let htmlContentToAppend = "";
     //console.log(JSON.parse(localStorage.getItem('productID')));
     for (let i = 0; i < allProducts.length; i++) {
         if ((allProducts[i].id != JSON.parse(localStorage.getItem('productID')))) {
-            //console.log("Imagen " + allProducts[i].image);
+            //console.log("Productos relacionados " + allProducts[i].id);
             htmlContentToAppend += `          
-            <div class="col-md-2">
-            <div onclick="setProductId(${allProducts[i].id})" class="card mb-4 shadow-sm custom-card cursor-active" id="card">
-              <img class="bd-placeholder-img card-img-top" src="${allProducts[i].image}"
-                alt="">
-              <div class="card-body">
-                <label class="card-text">${allProducts[i].name}</label>
-              </div>
-            </div>
-          </div>
-        `;
+                <div onclick="redireccionamiento(${allProducts[i].id})" class="col-md-2">
+                    <div class="card mb-4 shadow-sm custom-card cursor-active" id="card">
+                        <img class="bd-placeholder-img card-img-top" src="${allProducts[i].image}" alt="">
+                        <div class="card-body">
+                            <label class="card-text">${allProducts[i].name}</label>
+                        </div>
+                    </div>
+                </div>  `;
             document.getElementById("relacionados").innerHTML = htmlContentToAppend;
         }
     }
 
 }
-
-
 
 document.addEventListener("DOMContentLoaded", function (e) {
     let prod = localStorage.getItem("productID") + ".json";
@@ -136,5 +138,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         agregarComentario();
         showComentario();
     });
+
 
 });

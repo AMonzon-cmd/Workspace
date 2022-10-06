@@ -22,10 +22,10 @@ function showProductList(array) {
         /*me esta faltando algo que sepa que tiene que buscar en el array productos*/
         /*tomo los datos del arreglo y los imprimo en codigo html*/
         htmlContentToAppend += `
-        <div onclick="setProductID(${producto.id})" class="list-group-item list-group-item-action">
-            <div class="row" >
-                <div class="col-3">
-                    <img src="${producto.image}" alt="product image" class="img-thumbnail"></img>
+        <div onclick="setProductID(${producto.id})" class="list-group-item list-group-item-action" style="border: none">
+            <div class="row center-h center-v" >
+                <div class="col-3" >
+                    <img src="${producto.image}" alt="product image" class="img-thumbnail" style="border: none"></img>
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
@@ -41,7 +41,7 @@ function showProductList(array) {
         </div>
         `
         /*imprime resultado de htmlcontent que es lo que esta arriba en el div con cat-list-container*/
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("listProduct").innerHTML = htmlContentToAppend;
     }
     document.getElementById("textoadicional").innerHTML = "Veras aqui todos los productos relacionados con la categoria " + `<b> ${categoryArray.catName} </b>`
 }
@@ -127,7 +127,7 @@ function busqueda() {
 function setProductID(id) {
     localStorage.setItem("arrayProducts", JSON.stringify(productArray));
     localStorage.setItem("productID", id);
-    window.location = "product-info.html"
+    window.location = "product-info.html";
 }
 
 
